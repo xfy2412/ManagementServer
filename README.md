@@ -7,3 +7,6 @@
 - 修复会话验证问题（添加 ClientRegister 服务排除）
 
 ## 正在制作
+
+## 开发须知
+- 将ClassIsland.ManagementServer.Server/appsettings.Development.json中的ConnectionStrings改为自己的数据库连接字段
