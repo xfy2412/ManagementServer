@@ -91,6 +91,7 @@ public class ManifestController(ManagementServerContext dataContext,
         {
             OrganizationName = (await DataContext.OrganizationSettings.FindAsync("OrganizationName"))?.Value ?? "",
             ServerKind = ManagementServerKind.ManagementServer,
+            CoreVersion = new Version(2, 0, 0, 0),
             SubjectsSource = new ReVersionString {
                 Value = "{host}/api/v1/client/{cuid}/subjects",
                 Version = client.SubjectsVersion
@@ -114,6 +115,16 @@ public class ManifestController(ManagementServerContext dataContext,
             {
                 Value = "{host}/api/v1/client/{cuid}/default-settings",
                 Version = client.DefaultSettingsVersion
+            },
+            ComponentsSource = new ReVersionString
+            {
+                Value = "{host}/api/v1/client/{cuid}/components",
+                Version = 0
+            },
+            CredentialSource = new ReVersionString
+            {
+                Value = "{host}/api/v1/client/{cuid}/credentials",
+                Version = 0
             }
         });
     }
