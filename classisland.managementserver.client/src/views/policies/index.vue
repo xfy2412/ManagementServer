@@ -88,6 +88,12 @@
               </n-checkbox>
             </n-form-item>
             <n-form-item :show-label="false">
+              <n-checkbox v-model:checked="editingFormRef.content.disableEasterEggs">
+                <n-thing title="禁用彩蛋功能"
+                         description="启用此项后，用户将不能使用应用内的彩蛋功能。"/>
+              </n-checkbox>
+            </n-form-item>
+            <n-form-item :show-label="false">
               <n-checkbox v-model:checked="editingFormRef.content.allowExitManagement">
                 <n-thing title="允许退出集控"
                          description="控制用户是否能主动退出集控。禁用后，用户将无法自行退出集控。"/>
@@ -251,6 +257,7 @@ function handleAdd() {
       "disableSettingsEditing": false,
       "disableSplashCustomize": false,
       "disableDebugMenu": false,
+      "disableEasterEggs": false,
       "allowExitManagement": true
     },
     groupId: "00000000-0000-0000-0000-000000000001"

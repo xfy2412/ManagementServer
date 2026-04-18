@@ -27,7 +27,14 @@ public class ManifestController(ManagementServerContext dataContext,
         var client = await DataContext.Clients.FindAsync(cuid);
         if (client == null)
         {
-            return NotFound(new Error("找不到请求的对象"));
+            return Ok(new ManagementManifest()
+            {
+                IsRemoved = true,
+                RemovedAt = DateTime.Now,
+                OrganizationName = "",
+                ServerKind = ManagementServerKind.ManagementServer,
+                CoreVersion = new Version(2, 0, 0, 0)
+            });
         }
 
         var manifest = new ManagementManifest();

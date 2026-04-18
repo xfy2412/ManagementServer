@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿using CommunityToolkit.Mvvm.ComponentModel;
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 namespace ClassIsland.Shared.Models.Management;
@@ -16,6 +16,7 @@ public class ManagementPolicy : ObservableRecipient
     private bool _disableSplashCustomize = false;
     private bool _disableDebugMenu = false;
     private bool _allowExitManagement = true;
+    private bool _disableEasterEggs = false;
 
     public bool DisableProfileClassPlanEditing
     {
@@ -63,5 +64,11 @@ public class ManagementPolicy : ObservableRecipient
     {
         get => _allowExitManagement;
         set => SetProperty(ref _allowExitManagement, value);
+    }
+
+    public bool DisableEasterEggs
+    {
+        get => _disableEasterEggs;
+        set => SetProperty(ref _disableEasterEggs, value);
     }
 }
