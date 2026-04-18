@@ -59,4 +59,10 @@
     </Content>
   </ItemGroup>
 
+  <Target Name="EnsureNodeModules" BeforeTargets="BeforeBuild">
+    <Exec Command="pnpm install" WorkingDirectory="$(SpaRoot)" Condition="!Exists('$(SpaRoot)/node_modules') And Exists('$(ProgramFiles)/nodejs/pnpm.cmd')" IgnoreExitCode="false" />
+    <Exec Command="pnpm install" WorkingDirectory="$(SpaRoot)" Condition="!Exists('$(SpaRoot)/node_modules') And Exists('$(UserProfile)/AppData/Roaming/npm/pnpm.cmd')" IgnoreExitCode="false" />
+    <Exec Command="npm install" WorkingDirectory="$(SpaRoot)" Condition="!Exists('$(SpaRoot)/node_modules')" IgnoreExitCode="false" />
+  </Target>
+
 </Project>
